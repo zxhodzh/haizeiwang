@@ -1,0 +1,19 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://5uarrkheyepc"]
+
+[ext_resource type="Texture2D" uid="uid://cc2j1fgpxo5oh" path="res://资源/Treasure Hunters/Wood and Paper UI/Sprites/Prefabs/8.png" id="1_70w0q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8tgqh"]
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+texture = ExtResource("1_70w0q")
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+texture_margin_bottom = 24.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[resource]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_8tgqh")

@@ -1,0 +1,22 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://dte5j0umloeih"]
+
+[ext_resource type="Texture2D" uid="uid://848ufj685s" path="res://资源/Treasure Hunters/Wood and Paper UI/Sprites/Prefabs/5.png" id="1_25lxf"]
+[ext_resource type="FontFile" uid="uid://1ci167iwgo87" path="res://资源/Treasure Hunters/Wood and Paper UI/fonts/ThaleahFat.ttf" id="2_hstfn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_66e8l"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+texture = ExtResource("1_25lxf")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[resource]
+default_font = ExtResource("2_hstfn")
+default_font_size = 16
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_66e8l")

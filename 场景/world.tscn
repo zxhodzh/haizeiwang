@@ -1,0 +1,409 @@
+[gd_scene load_steps=31 format=3 uid="uid://vfwkawlo1tyt"]
+
+[ext_resource type="Texture2D" uid="uid://cnssvjtvifvfk" path="res://资源/Treasure Hunters/Palm Tree Island/Sprites/Background/Additional Sky.png" id="1_7k071"]
+[ext_resource type="Script" path="res://脚本/world.gd" id="1_ukeuc"]
+[ext_resource type="Texture2D" uid="uid://cgrvxvwhuj7pe" path="res://资源/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="2_1ep41"]
+[ext_resource type="Texture2D" uid="uid://d2kpkr3qtjqmw" path="res://资源/Treasure Hunters/Palm Tree Island/Sprites/Background/Additional Water.png" id="3_p0afs"]
+[ext_resource type="Texture2D" uid="uid://b2k8eayb80i2m" path="res://资源/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 01.png" id="4_ipgcw"]
+[ext_resource type="Texture2D" uid="uid://cy1fh8oj731vr" path="res://资源/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 02.png" id="5_dwlei"]
+[ext_resource type="Texture2D" uid="uid://cpx8y3bl636q6" path="res://资源/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 03.png" id="6_jmuo7"]
+[ext_resource type="Texture2D" uid="uid://cxhvlu0l4x8pp" path="res://资源/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 04.png" id="7_qdf0f"]
+[ext_resource type="Script" path="res://脚本/Scrolling_Background.gd" id="8_2rm1c"]
+[ext_resource type="Texture2D" uid="uid://erh3ndcg60wr" path="res://资源/Treasure Hunters/Palm Tree Island/Sprites/Background/Big Clouds.png" id="8_qtbq0"]
+[ext_resource type="Texture2D" uid="uid://d4dojwoly7pe" path="res://资源/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 1.png" id="9_5w061"]
+[ext_resource type="Texture2D" uid="uid://bhvy28ra8at52" path="res://资源/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 2.png" id="10_ra5dh"]
+[ext_resource type="Texture2D" uid="uid://dhmm7nygiyaxk" path="res://资源/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 3.png" id="11_axfkx"]
+[ext_resource type="Script" path="res://脚本/UI/selection_menu.gd" id="13_4fpxt"]
+[ext_resource type="Theme" uid="uid://dte5j0umloeih" path="res://场景/themes/yellow_world.tres" id="13_cm3qo"]
+[ext_resource type="Theme" uid="uid://deoak3fr88hir" path="res://场景/themes/banner.tres" id="14_c3bdy"]
+[ext_resource type="FontFile" uid="uid://1ci167iwgo87" path="res://资源/Treasure Hunters/Wood and Paper UI/fonts/ThaleahFat.ttf" id="14_vcjla"]
+[ext_resource type="FontFile" uid="uid://8m15qf0pd035" path="res://资源/Treasure Hunters/Wood and Paper UI/fonts/NbPixelFontBundle_v1_0/KarenFat.ttf" id="15_dbuy8"]
+[ext_resource type="Theme" uid="uid://5uarrkheyepc" path="res://场景/themes/paper.tres" id="16_xyowm"]
+[ext_resource type="Script" path="res://脚本/UI/MainMenu/newgame_label.gd" id="19_66swp"]
+[ext_resource type="Script" path="res://脚本/UI/MainMenu/exit_label.gd" id="19_xgnus"]
+[ext_resource type="Script" path="res://脚本/UI/Transition.gd" id="22_cx7go"]
+[ext_resource type="Script" path="res://脚本/main.gd" id="22_fidmw"]
+[ext_resource type="Script" path="res://脚本/UI/PauseMenu/ContinueLabel.gd" id="22_srmnv"]
+[ext_resource type="Script" path="res://脚本/UI/PauseMenu/MainMenuLabel.gd" id="23_ym0t1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ikebf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ipgcw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dwlei")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jmuo7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qdf0f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_6x120"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_58ssk"]
+resource_name = "fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_6o6tb"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s15cm"]
+_data = {
+"RESET": SubResource("Animation_6x120"),
+"fade_in": SubResource("Animation_58ssk"),
+"fade_out": SubResource("Animation_6o6tb")
+}
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_ukeuc")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="backgroundLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 1)
+
+[node name="sky" type="Sprite2D" parent="ParallaxBackground/backgroundLayer"]
+position = Vector2(0, -352)
+scale = Vector2(12, 12)
+texture = ExtResource("1_7k071")
+centered = false
+
+[node name="BG" type="Sprite2D" parent="ParallaxBackground/backgroundLayer"]
+position = Vector2(0, 32)
+texture = ExtResource("2_1ep41")
+centered = false
+
+[node name="water" type="Sprite2D" parent="ParallaxBackground/backgroundLayer"]
+position = Vector2(0, 160)
+scale = Vector2(12, 1)
+texture = ExtResource("3_p0afs")
+centered = false
+
+[node name="reflectionLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ParallaxBackground/reflectionLayer"]
+position = Vector2(45, 119)
+sprite_frames = SubResource("SpriteFrames_ikebf")
+autoplay = "default"
+centered = false
+
+[node name="SmallCloudLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.8, 1)
+motion_mirroring = Vector2(440, 0)
+script = ExtResource("8_2rm1c")
+speed = 15
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/SmallCloudLayer"]
+texture = ExtResource("9_5w061")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/SmallCloudLayer"]
+position = Vector2(130, -107)
+texture = ExtResource("9_5w061")
+centered = false
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/SmallCloudLayer"]
+position = Vector2(46, -69)
+texture = ExtResource("9_5w061")
+centered = false
+
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground/SmallCloudLayer"]
+position = Vector2(220, -57)
+texture = ExtResource("9_5w061")
+centered = false
+
+[node name="Sprite2D5" type="Sprite2D" parent="ParallaxBackground/SmallCloudLayer"]
+position = Vector2(206, -20)
+texture = ExtResource("10_ra5dh")
+centered = false
+
+[node name="Sprite2D6" type="Sprite2D" parent="ParallaxBackground/SmallCloudLayer"]
+position = Vector2(329, -149)
+texture = ExtResource("11_axfkx")
+centered = false
+
+[node name="BigCloudsLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.8, 1)
+motion_mirroring = Vector2(448, 0)
+script = ExtResource("8_2rm1c")
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BigCloudsLayer"]
+position = Vector2(0, 17)
+texture = ExtResource("8_qtbq0")
+centered = false
+
+[node name="MainMenu" type="CanvasLayer" parent="." node_paths=PackedStringArray("selection_v_box")]
+process_mode = 3
+visible = false
+script = ExtResource("13_4fpxt")
+selection_v_box = NodePath("MainMenuPanel/MainMenuVBox/SelectionPanel/SelectionVBox")
+
+[node name="MainMenuPanel" type="PanelContainer" parent="MainMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -52.0
+offset_right = 46.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("13_cm3qo")
+
+[node name="MainMenuVBox" type="VBoxContainer" parent="MainMenu/MainMenuPanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = -14
+
+[node name="TitlePanel" type="PanelContainer" parent="MainMenu/MainMenuPanel/MainMenuVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("14_c3bdy")
+
+[node name="TitleLabel" type="Label" parent="MainMenu/MainMenuPanel/MainMenuVBox/TitlePanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.270588, 0.145098, 0.27451, 1)
+theme_override_fonts/font = ExtResource("15_dbuy8")
+text = "Pirate King
+"
+
+[node name="SelectionPanel" type="PanelContainer" parent="MainMenu/MainMenuPanel/MainMenuVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("16_xyowm")
+
+[node name="SelectionVBox" type="VBoxContainer" parent="MainMenu/MainMenuPanel/MainMenuVBox/SelectionPanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ContinueLabel" type="Label" parent="MainMenu/MainMenuPanel/MainMenuVBox/SelectionPanel/SelectionVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.270588, 0.145098, 0.27451, 1)
+theme_override_fonts/font = ExtResource("14_vcjla")
+text = "continue
+"
+
+[node name="NewgameLabel" type="Label" parent="MainMenu/MainMenuPanel/MainMenuVBox/SelectionPanel/SelectionVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.270588, 0.145098, 0.27451, 1)
+theme_override_fonts/font = ExtResource("14_vcjla")
+text = "new game
+"
+script = ExtResource("19_66swp")
+
+[node name="OptionsLabel" type="Label" parent="MainMenu/MainMenuPanel/MainMenuVBox/SelectionPanel/SelectionVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.270588, 0.145098, 0.27451, 1)
+theme_override_fonts/font = ExtResource("14_vcjla")
+text = "options
+"
+
+[node name="ExitLabel" type="Label" parent="MainMenu/MainMenuPanel/MainMenuVBox/SelectionPanel/SelectionVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.270588, 0.145098, 0.27451, 1)
+theme_override_fonts/font = ExtResource("14_vcjla")
+text = "exit
+"
+script = ExtResource("19_xgnus")
+
+[node name="PauseMenu" type="CanvasLayer" parent="." node_paths=PackedStringArray("selection_v_box")]
+process_mode = 3
+visible = false
+script = ExtResource("13_4fpxt")
+selection_v_box = NodePath("PauseMenuPanel/PauseMenuVBox/SelectionPanel/SelectionVBox")
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+modulate = Color(0, 0, 0, 0.439216)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseMenuPanel" type="PanelContainer" parent="PauseMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -76.0
+offset_right = 88.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_cm3qo")
+
+[node name="PauseMenuVBox" type="VBoxContainer" parent="PauseMenu/PauseMenuPanel"]
+layout_mode = 2
+theme_override_constants/separation = -14
+
+[node name="TitlePanel" type="PanelContainer" parent="PauseMenu/PauseMenuPanel/PauseMenuVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("14_c3bdy")
+
+[node name="TitleLabel" type="Label" parent="PauseMenu/PauseMenuPanel/PauseMenuVBox/TitlePanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.270588, 0.145098, 0.27451, 1)
+theme_override_fonts/font = ExtResource("14_vcjla")
+text = "paused"
+
+[node name="SelectionPanel" type="PanelContainer" parent="PauseMenu/PauseMenuPanel/PauseMenuVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("16_xyowm")
+
+[node name="SelectionVBox" type="VBoxContainer" parent="PauseMenu/PauseMenuPanel/PauseMenuVBox/SelectionPanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ContinueLabel" type="Label" parent="PauseMenu/PauseMenuPanel/PauseMenuVBox/SelectionPanel/SelectionVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.270588, 0.145098, 0.27451, 1)
+theme_override_fonts/font = ExtResource("14_vcjla")
+text = "continue"
+script = ExtResource("22_srmnv")
+
+[node name="OptionsLabel" type="Label" parent="PauseMenu/PauseMenuPanel/PauseMenuVBox/SelectionPanel/SelectionVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.270588, 0.145098, 0.27451, 1)
+theme_override_fonts/font = ExtResource("14_vcjla")
+text = "options"
+
+[node name="MainMenuLabel" type="Label" parent="PauseMenu/PauseMenuPanel/PauseMenuVBox/SelectionPanel/SelectionVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.270588, 0.145098, 0.27451, 1)
+theme_override_fonts/font = ExtResource("14_vcjla")
+text = "main menu"
+script = ExtResource("23_ym0t1")
+
+[node name="Transition" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("22_cx7go")
+
+[node name="ColorRect" type="ColorRect" parent="Transition"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
+libraries = {
+"": SubResource("AnimationLibrary_s15cm")
+}
+
+[node name="main" type="Node2D" parent="."]
+script = ExtResource("22_fidmw")
+
+[connection signal="animation_finished" from="Transition/AnimationPlayer" to="Transition" method="_on_animation_player_animation_finished"]

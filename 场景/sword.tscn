@@ -1,0 +1,67 @@
+[gd_scene load_steps=13 format=3 uid="uid://bifrgtuebeobl"]
+
+[ext_resource type="Script" path="res://脚本/sword.gd" id="1_yneby"]
+[ext_resource type="Texture2D" uid="uid://7jkk0j0haue7" path="res://资源/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 01.png" id="2_xleqk"]
+[ext_resource type="Texture2D" uid="uid://b0aomjwu4prmo" path="res://资源/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 02.png" id="3_2vtji"]
+[ext_resource type="Texture2D" uid="uid://hmjpewrd4dpe" path="res://资源/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 03.png" id="4_li5hp"]
+[ext_resource type="Texture2D" uid="uid://pejwwn2waged" path="res://资源/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 04.png" id="5_07wd2"]
+[ext_resource type="Texture2D" uid="uid://b4cyw2vh1b8ab" path="res://资源/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 05.png" id="6_qd6tm"]
+[ext_resource type="Texture2D" uid="uid://b5mhk0l1vx13p" path="res://资源/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 06.png" id="7_wt8rj"]
+[ext_resource type="Texture2D" uid="uid://b7likgb5l8hax" path="res://资源/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 07.png" id="8_ohq3u"]
+[ext_resource type="Texture2D" uid="uid://bx5318cx3hup6" path="res://资源/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 08.png" id="9_8i5tm"]
+[ext_resource type="AudioStream" uid="uid://db67ftqlhursc" path="res://资源/Sound Effects/Sword/209102__lukesharples__unshealth.wav" id="10_ac58e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ucdfq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xleqk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2vtji")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_li5hp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_07wd2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qd6tm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wt8rj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ohq3u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8i5tm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ow3ss"]
+size = Vector2(19, 5)
+
+[node name="sword" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_yneby")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ucdfq")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_ow3ss")
+
+[node name="PickupSXF" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_ac58e")
+bus = &"SFX"
+
+[connection signal="body_entered" from="." to="." method="_on_player_entered"]
+[connection signal="finished" from="PickupSXF" to="." method="_on_pickup_sxf_finished"]

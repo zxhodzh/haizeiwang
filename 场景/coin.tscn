@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://d26mntk5okjqc"]
+
+[ext_resource type="Script" path="res://脚本/coin.gd" id="1_2lefj"]
+[ext_resource type="Texture2D" uid="uid://dj7g0whjk0nku" path="res://资源/Treasure Hunters/Pirate Treasure/Sprites/Coin Effect/01.png" id="1_i7yv1"]
+[ext_resource type="Texture2D" uid="uid://db327lsstjkl6" path="res://资源/Treasure Hunters/Pirate Treasure/Sprites/Coin Effect/02.png" id="2_tb1t1"]
+[ext_resource type="Texture2D" uid="uid://b6bdtprw1c3dn" path="res://资源/Treasure Hunters/Pirate Treasure/Sprites/Coin Effect/03.png" id="3_4k2tq"]
+[ext_resource type="Texture2D" uid="uid://7ihm6iyablsa" path="res://资源/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/01.png" id="4_p0gyd"]
+[ext_resource type="Texture2D" uid="uid://cv46yyjdqqoo7" path="res://资源/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/02.png" id="5_h7upe"]
+[ext_resource type="Texture2D" uid="uid://ctbgld3bdcxpl" path="res://资源/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/03.png" id="6_s66uo"]
+[ext_resource type="Texture2D" uid="uid://6v8vldngpxea" path="res://资源/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/04.png" id="7_n2mbo"]
+[ext_resource type="AudioStream" uid="uid://b8568c8jn7j2l" path="res://资源/Sound Effects/Treasure/699496__valenspire__coin_drop_01.wav" id="9_pteoj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_do3hw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_i7yv1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tb1t1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4k2tq")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"collect",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_p0gyd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h7upe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_s66uo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_n2mbo")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mriyv"]
+radius = 5.0
+
+[node name="coin" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_2lefj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_do3hw")
+animation = &"collect"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mriyv")
+
+[node name="collectSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_pteoj")
+bus = &"SFX"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_animation_finished"]
